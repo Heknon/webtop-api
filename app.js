@@ -7,6 +7,10 @@ const loginRoute = require('./routes/login');
 const logoutRoute = require('./routes/logout');
 const gradesRoute = require('./routes/grades');
 const timetableRoute = require('./routes/timetable');
+const inboxRoute = require('./routes/inbox');
+const testsLeftRoute = require('./routes/testsLeft');
+const timetableChangesRoute = require('./routes/timetableChanges');
+const settingsRoute = require('./routes/settings');
 
 const app = express();
 
@@ -18,6 +22,10 @@ app.use('/api/login', loginRoute);
 app.use('/api/logout', logoutRoute);
 app.use('/api/grades', gradesRoute);
 app.use('/api/timetable', timetableRoute);
+app.use('/api/inbox', inboxRoute);
+app.use('/api/testsleft', testsLeftRoute);
+app.use('/api/timetable/changes', timetableChangesRoute);
+app.use('/api/settings/update', settingsRoute);
 
 
 
