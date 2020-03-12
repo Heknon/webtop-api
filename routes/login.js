@@ -13,6 +13,17 @@ router.post('/', (req, res, next) => {
         });
         return;
     }
+    const id = req.body.id;
+    const password = req.body.password;
+
+    if (id === undefined || password === undefined) {
+        res.status(400).json({
+            success: false,
+            reason: 'You must send a `password` and `id` in the request body!'
+        });
+        return;
+    }
+
     const client = new webtop.Client(req.body.id, req.body.password, false);
     client.login().then(res2 => {
         const key = sessions.sessions.addSession(client);
