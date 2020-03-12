@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const loginRoute = require('./routes/login');
 const logoutRoute = require('./routes/logout');
@@ -14,6 +15,7 @@ const settingsRoute = require('./routes/settings');
 
 const app = express();
 
+app.use(cors())
 app.use(morgan('dev'))
 app.use(cookieParser());
 app.use(bodyParser());
