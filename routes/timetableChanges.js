@@ -1,6 +1,5 @@
 const express = require('express');
 const sessions = require('../sessions');
-import { Client } from '@heknon/node-webtop';
 
 const router = express.Router();
 
