@@ -20,6 +20,7 @@ app.use(morgan('dev'))
 app.use(cookieParser());
 app.use(bodyParser());
 
+
 app.use('/api/login', loginRoute);
 app.use('/api/logout', logoutRoute);
 app.use('/api/grades', gradesRoute);
@@ -28,6 +29,13 @@ app.use('/api/inbox', inboxRoute);
 app.use('/api/testsleft', testsLeftRoute);
 app.use('/api/timetable/changes', timetableChangesRoute);
 app.use('/api/settings/update', settingsRoute);
+
+app.use((req, res, next) => {
+    res.status(404).json({
+        success: false,
+        reason: "Route not found!"
+    });
+});
 
 
 
